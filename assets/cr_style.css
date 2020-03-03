@@ -1,0 +1,164 @@
+/* style sheet*/
+
+.cr_settings{
+	background-color: #fff;
+	padding: 10px;
+	margin: 0px;
+	width: 500px;
+}
+
+body {
+	background-color: #ececec !important;
+}
+
+.container_cr {
+	margin-top:50px !important;
+	margin-bottom:20px;
+	background-color: #fff;
+	padding: 20px;
+    width: 90%;
+    margin:0 auto;
+    height: 550px !important;
+}
+.container_cr_student {
+    margin-top:50px !important;
+    margin-bottom:20px;
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    margin:0 auto;
+    height: auto; !important;
+
+}
+.container_cr h4, .container_cr_student h4 {
+    font-size: 24px;
+    margin:0px;
+    padding: 0px;
+
+}
+section {
+    padding: 3rem 0 !important;
+    width: 100%;
+}
+.sc-header P {
+	font-size: 25px;
+	text-align:left !important;
+	font-weight: bold;
+}
+.sc-header select{
+	width: 220px;	
+	height: 35px;
+	border-radius: 5px;
+}
+.search_box #sc-search{
+	width: 300px;
+	height: 35px;
+	border-radius: 5px;
+}
+
+.sc-table {
+	margin-bottom:10px;
+	background-color: #fff;
+	padding: 20px;	
+}
+.llms-reporting-tab-content {
+	background: #fff !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    padding: 20px !important;
+    margin-right: auto !important;
+}
+
+.llms-reporting-widget {
+    border-top: 4px solid #466dd8;
+    background: #bacee2;
+    margin-bottom: 0.75em;
+    padding: 18px 15px 15px;
+}
+.d-1of3 {
+    float: left;
+    padding-right: 0.75em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 33.33%;
+}
+.llms-reporting-widget .fa {
+    color: #555;
+    float: left;
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+.llms-reporting-widget .llms-reporting-widget-data {
+    line-height: 0.8;
+}
+
+.d-1of2 {
+    float: left;
+    padding-right: 0.75em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.llms-reporting-tab-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.llms-reporting-widget .fa {
+    color: #555;
+    float: left;
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+/* lifterlms table css */
+.llms-table td, .llms-table th {
+    border-bottom: 1px solid #cecece;
+    font-size: 95%;
+    padding: 4px;
+    text-align: center;
+}
+
+.llms-table.zebra tbody tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+.llms-table thead th, .llms-table tfoot th {
+    background-color: #eaeaea;
+    font-weight: 500;
+}
+
+.llms-table {
+    border: 1px solid #cecece;
+    border-collapse: collapse;
+    width: 100%;
+}
+.llms-table-progress {
+    background: #eee;
+    height: 16px;
+    position: relative;
+}
+
+.llms-table-progress .llms-table-progress-text {
+    font-size: 11px;
+    line-height: 16px;
+    position: absolute;
+    right: 4px;
+    top: 0;
+}
+
+.llms-table-progress .llms-table-progress-inner {
+    background: #466dd8;
+    height: 100%;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease;
+}
+
+/* default 2020 theme container */
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+    max-width: none !important;
+    width: 90%;
+}
