@@ -29,12 +29,12 @@ function course_reporting_shortcode_fun() {
 		$course_id 	= $_GET['course_id'];
 		$view 		= $_GET['view'];
 
-		load_single_course_view($course_id, $view); 
-		load_students_course_details($course_id, $view);
+		load_single_course_view($course_id, $view); 		// 	load course details
+		load_students_course_details($course_id, $view);	//	load students details in single course
 
 	} else {
 
-		load_courses_by_instructor($user);
+		load_courses_by_instructor($user);		// load courses by instructor
 	}
 
 
@@ -54,11 +54,13 @@ function load_courses_by_instructor($user) {
 
 	$current_page_link = get_permalink( $post );
 
-	$instructor = $user;
-
+	// get llms instructor class object
 	$llms_instructor_courses = new LLMS_Instructor();
+	
+	// set arguments with author / instructor
 	$args = array ('author' => $instructor->ID);
 
+	// get courses by instructor
 	$course = $llms_instructor_courses->get_courses($args);
  
 ?>
