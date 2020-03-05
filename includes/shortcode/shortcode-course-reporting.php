@@ -57,8 +57,9 @@ function load_courses_by_instructor($user) {
 	// get llms instructor class object
 	$llms_instructor_courses = new LLMS_Instructor();
 	
+
 	// set arguments with author / instructor
-	$args = array ('author' => $instructor->ID);
+	$args = array ('author' => $user->ID);
 
 	// get courses by instructor
 	$course = $llms_instructor_courses->get_courses($args);
