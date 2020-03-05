@@ -56,16 +56,10 @@ function load_courses_by_instructor($user) {
 
 	$instructor = $user;
 
-	$args = array(
-		'post_type' => 'course',
-		'posts_per_page' => -1,
-		'post_status' => 'publish',
-		'author'  =>  $user->ID,
-		'orderby' => 'date',
-		'order'   => 'ASC',
-	);
-					
-	$courses = get_posts($args);
+	$llms_instructor_courses = new LLMS_Instructor();
+	$args = array ('author' => $instructor->ID);
+
+	$course = $llms_instructor_courses->get_courses($args);
  
 ?>
 	<div class="container_cr">
@@ -84,14 +78,14 @@ function load_courses_by_instructor($user) {
    			</thead>
    			<tbody>
 			<?php 
-				foreach ($courses as $key => $value) {
+				foreach ($course as $key => $value) {
 					
-					$id 				= $value->ID;
-   					$title 				= $value->post_title;
-					$instructor_name 	= get_user_meta( $user->ID, 'first_name', true) .' '. get_user_meta( $user->ID, 'last_name', true);
-   					$capacity 			= count(llms_get_enrolled_students($value->ID, 'enrolled', 50, 0));	 
-   					$avg_progress       = get_post_meta($value->ID,'_llms_average_progress',true);
-   					$avg_grade       	= get_post_meta($value->ID,'_llms_average_grade',true);
+					$id 				= $value->id;
+   					$title 				= $value->title;
+					$instructor_name 	= get_user_meta( $value->author, 'first_name', true) .' '. get_user_meta( $value->author, 'last_name', true);
+   					$capacity 			= count(llms_get_enrolled_students($value->id, 'enrolled', 50, 0));	 
+   					$avg_progress       = get_post_meta($value->id,'_llms_average_progress',true);
+   					$avg_grade       	= get_post_meta($value->id,'_llms_average_grade',true);
 
    					if ($avg_progress == '') $avg_progress = 0;
 
@@ -99,25 +93,24 @@ function load_courses_by_instructor($user) {
    					
    					// route link to single course details
 					$reporting_var = add_query_arg(array(
-						'course_id' => $value->ID,
+						'course_id' => $value->id,
 						'view' =>	'report'
 					), $current_page_link );
 					?>
-					echo 
 					<tr>
 						<td><?php echo  $id; ?></td>
 						<td>
 							<a href="<?php echo $reporting_var; ?>"> <?php echo  $title; ?></a>
 						</td>
+						<td><?php echo  $instructor_name; ?></td>
 						<td><?php echo $capacity; ?></td>
-						<td><?php echo $avg_grade; ?></td>
 						<td class="progress">
 						<div class="llms-table-progress">
-							<span class="llms-table-progress-text"><?php echo $avg_progress; ?>;</span>
-							<div class="llms-table-progress-inner" style="<?php echo 'width:'. $avg_progress.'%'; ?>;"></div>
+							<span class="llms-table-progress-text"><?php echo $avg_progress . '%';?></span>
+							<div class="llms-table-progress-inner" style="<?php echo 'width:'. $avg_progress.'%'; ?>"></div>
 						</div>
 						</td>
-						<td><?php echo ""; ?></td>
+						<td><?php echo $avg_grade . '%'; ?></td>
 					</tr>
    					<?php
    					}
